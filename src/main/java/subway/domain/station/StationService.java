@@ -6,17 +6,11 @@ import java.util.stream.Collectors;
 
 public class StationService {
 
-    private static String initialStations = "교대역,강남역,역삼역,남부터미널역,양재역,양재시민의숲역,매봉역";
-
-    public StationService(){
-        setInitialStations();
-    }
-    private static void setInitialStations(){
-        List<String> stations = Arrays.stream(initialStations.split(","))
-            .collect(Collectors.toList());
-        for(String station : stations){
-            StationRepository.addStation(new Station(station));
-        }
+    public static void addStation(Station station){
+        StationRepository.addStation(station);
     }
 
+    public static void deleteStation(String name){
+        StationRepository.deleteStation(name);
+    }
 }
