@@ -11,7 +11,7 @@ public class LineInitialization {
     private static final String thirdLine = "3호선,교대역,남부터미널역,양재역,매봉역";
     private static final String shinBunDangLine = "신분당선,강남역,양재역,양재시민의숲역";
 
-    private static void setInitialLines(){
+    public static void setInitialLines(){
         List<String> lineLists = new ArrayList<>(Arrays.asList(secondLine,thirdLine,shinBunDangLine));
         for(String line : lineLists){
             String[] lineInfo = line.split(",");
