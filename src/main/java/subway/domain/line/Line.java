@@ -6,15 +6,21 @@ import subway.domain.station.Station;
 
 public class Line {
     private String name;
-    private List<Station> stationLists = new ArrayList<>();
+    private List<Station> stationList = new ArrayList<>();
 
     public Line(String name) {
         this.name = name;
+    }
+
+    public void addStations(Station station){
+        stationList.add(station);
     }
 
     public String getName() {
         return name;
     }
 
-    // 추가 기능 구현
+    public List<Station> getStationList(){
+        return stationList;
+    }
 }
