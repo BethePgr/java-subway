@@ -33,7 +33,18 @@ public class StationValidate {
         }
     }
 
-    public static void validateStationIsInLine(String input){
+    public static void deleteStationValidate(String input){
+        validateNameIsNotInStationList(input);
+        validateStationIsInLine(input);
+    }
+
+    private static void validateNameIsNotInStationList(String input){
+        if(StationRepository.stations().stream().noneMatch(station -> station.getName().equals(input))){
+            throw new IllegalArgumentException("[ERROR] 제거하려는 역이 존재하지 않습니다.");
+        }
+    }
+
+    private static void validateStationIsInLine(String input){
         for(Line line : LineRepository.lines()){
             if(line.getStationList().stream().anyMatch(station -> station.getName().equals(input))){
                 throw new IllegalArgumentException("[ERROR] 지우려는 역이 이미 노선에 추가되어져 있습니다.");

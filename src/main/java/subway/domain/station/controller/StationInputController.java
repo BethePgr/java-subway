@@ -30,7 +30,7 @@ public class StationInputController {
     public static String deleteStation(){
         try{
             String input = StationInputView.deleteStation();
-            StationValidate.validateStationIsInLine(input);
+            StationValidate.deleteStationValidate(input);
             return input;
         }catch(IllegalArgumentException e){
             System.out.println(e.getMessage());
