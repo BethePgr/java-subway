@@ -15,4 +15,10 @@ public class StationInputView {
         System.out.println("## 등록할 역 이름을 입력하세요.");
         return scanner.next();
     }
+
+    public static String deleteStation(){
+        System.out.println("## 삭제할 역 이름을 입력하세요.");
+        return scanner.next();
+    }
+
 }

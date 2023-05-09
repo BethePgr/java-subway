@@ -26,4 +26,15 @@ public class StationInputController {
             return addStation();
         }
     }
+
+    public static String deleteStation(){
+        try{
+            String input = StationInputView.deleteStation();
+            StationValidate.validateStationIsInLine(input);
+            return input;
+        }catch(IllegalArgumentException e){
+            System.out.println(e.getMessage());
+            return deleteStation();
+        }
+    }
 }
