@@ -19,7 +19,7 @@ public class StationInputController {
     public static String addStation(){
         try{
             String input = StationInputView.addStation();
-            StationValidate.validateEndWithStationAndLengthOver3(input);
+            StationValidate.addStationValidate(input);
             return input;
         }catch(IllegalArgumentException e){
             System.out.println(e.getMessage());

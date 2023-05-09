@@ -15,13 +15,19 @@ public class StationValidate {
         }
     }
 
-    public static void validateEndWithStationAndLengthOver3(String input){
+    public static void addStationValidate(String input){
+        validateEndWithStationAndLengthOver3(input);
+        validateNotDuplicate(input);
+    }
+
+
+    private static void validateEndWithStationAndLengthOver3(String input){
         if(!input.endsWith("역") || input.length() < 3){
             throw new IllegalArgumentException("[ERROR] 역의 끝 글자는 역으로 끝나면서 이름은 역 제외 두 글자 이상입니다.");
         }
     }
 
-    public static void validateNotDuplicate(String input){
+    private static void validateNotDuplicate(String input){
         if(StationRepository.stations().stream().anyMatch(station -> station.getName().equals(input))){
             throw new IllegalArgumentException("[ERROR] 중복된 이름의 역은 다시 등록될 수 없습니다.");
         }
