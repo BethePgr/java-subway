@@ -18,4 +18,10 @@ public class StationValidate {
             throw new IllegalArgumentException("[ERROR] 역의 끝 글자는 역으로 끝나면서 이름은 역 제외 두 글자 이상입니다.");
         }
     }
+
+    public static void validateNotDuplicate(String input){
+        if(StationRepository.stations().contains(input)){
+            throw new IllegalArgumentException("[ERROR] 중복된 이름의 역은 다시 등록될 수 없습니다.");
+        }
+    }
 }
