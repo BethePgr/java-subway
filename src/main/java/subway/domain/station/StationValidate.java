@@ -39,7 +39,7 @@ public class StationValidate {
     }
 
     private static void validateNameIsNotInStationList(String input){
-        if(StationRepository.stations().stream().noneMatch(station -> station.getName().equals(input))){
+        if(!StationRepository.deleteStation(input)){
             throw new IllegalArgumentException("[ERROR] 제거하려는 역이 존재하지 않습니다.");
         }
     }
