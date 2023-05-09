@@ -34,8 +34,8 @@ public class StationValidate {
     }
 
     public static void deleteStationValidate(String input){
-        validateNameIsNotInStationList(input);
         validateStationIsInLine(input);
+        validateNameIsNotInStationList(input);
     }
 
     private static void validateNameIsNotInStationList(String input){

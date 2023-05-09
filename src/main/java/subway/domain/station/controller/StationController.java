@@ -1,6 +1,9 @@
 package subway.domain.station.controller;
 
+import subway.domain.line.Line;
+import subway.domain.line.LineRepository;
 import subway.domain.station.Station;
+import subway.domain.station.StationRepository;
 import subway.domain.station.service.StationService;
 import subway.domain.station.view.StationOutputView;
 
@@ -24,17 +27,27 @@ public class StationController {
 
     private static void addStation(String input){
         if(input.equals("1")){
-            String newStation = StationInputController.addStation();
-            StationService.addStation(new Station(newStation));
-            StationOutputView.addedStation();
+            try {
+                String newStation = StationInputController.addStation();
+                StationService.addStation(new Station(newStation));
+                StationOutputView.addedStation();
+            }catch (IllegalArgumentException e){
+                System.out.println(e.getMessage());
+
+            }
         }
     }
 
     private static void deleteStation(String input){
         if(input.equals("2")){
-            String deleteStation = StationInputController.deleteStation();
-            StationService.deleteStation(deleteStation);
-            StationOutputView.deletedStation();
+            try {
+                String deleteStation = StationInputController.deleteStation();
+                System.out.println("zz");
+                StationService.deleteStation(deleteStation);
+                StationOutputView.deletedStation();
+            }catch (IllegalArgumentException e){
+                System.out.println(e.getMessage());
+            }
         }
     }
 

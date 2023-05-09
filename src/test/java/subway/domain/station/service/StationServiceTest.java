@@ -77,4 +77,5 @@ class StationServiceTest {
         boolean 매봉크역 = StationRepository.deleteStation("매봉크역");
         assertTrue(StationRepository.stations().stream().noneMatch(station -> station.getName().equals("매봉크역")));
     }
+
 }

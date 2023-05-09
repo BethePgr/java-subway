@@ -6,37 +6,27 @@ import subway.domain.station.view.StationOutputView;
 
 public class StationInputController {
 
-    public static String startStationInput(){
-        try{
+    public static String startStationInput() {
+        try {
             StationOutputView.mainStation();
             String input = StationInputView.startStationInput();
             StationValidate.validateStationStartInput(input);
             return input;
-        }catch(IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             return startStationInput();
         }
     }
 
-    public static String addStation(){
-        try{
-            String input = StationInputView.addStation();
-            StationValidate.addStationValidate(input);
-            return input;
-        }catch(IllegalArgumentException e){
-            System.out.println(e.getMessage());
-            return StationInputController.startStationInput();
-        }
+    public static String addStation() throws IllegalArgumentException{
+        String input = StationInputView.addStation();
+        StationValidate.addStationValidate(input);
+        return input;
     }
 
-    public static String deleteStation(){
-        try{
-            String input = StationInputView.deleteStation();
-            StationValidate.deleteStationValidate(input);
-            return input;
-        }catch(IllegalArgumentException e){
-            System.out.println(e.getMessage());
-            return StationInputController.startStationInput();
-        }
+    public static String deleteStation() throws IllegalArgumentException{
+        String input = StationInputView.deleteStation();
+        StationValidate.deleteStationValidate(input);
+        return input;
     }
 }
