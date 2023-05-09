@@ -2,11 +2,13 @@ package subway.domain.station.controller;
 
 import subway.domain.station.view.StationInputView;
 import subway.domain.station.StationValidate;
+import subway.domain.station.view.StationOutputView;
 
 public class StationInputController {
 
     public static String startStationInput(){
         try{
+            StationOutputView.mainStation();
             String input = StationInputView.startStationInput();
             StationValidate.validateStationStartInput(input);
             return input;
@@ -23,7 +25,7 @@ public class StationInputController {
             return input;
         }catch(IllegalArgumentException e){
             System.out.println(e.getMessage());
-            return addStation();
+            return StationInputController.startStationInput();
         }
     }
 
@@ -34,7 +36,7 @@ public class StationInputController {
             return input;
         }catch(IllegalArgumentException e){
             System.out.println(e.getMessage());
-            return deleteStation();
+            return StationInputController.startStationInput();
         }
     }
 }

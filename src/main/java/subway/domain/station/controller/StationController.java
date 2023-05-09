@@ -7,7 +7,6 @@ import subway.domain.station.view.StationOutputView;
 public class StationController {
 
     public static void startStation(){
-        StationOutputView.mainStation();
         while(true) {
             String input = StationInputController.startStationInput();
             if(input.equals("B")){
