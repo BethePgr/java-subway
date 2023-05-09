@@ -1,6 +1,7 @@
 package subway.domain.station.service;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import subway.domain.station.Station;
@@ -14,5 +15,9 @@ public class StationService {
 
     public static void deleteStation(String name){
         StationRepository.deleteStation(name);
+    }
+
+    public static List<Station> getStations(){
+        return StationRepository.stations();
     }
 }
