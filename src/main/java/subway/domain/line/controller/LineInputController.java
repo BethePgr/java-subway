@@ -40,7 +40,6 @@ public class LineInputController {
 
     public static Line deleteLine() throws IllegalArgumentException{
         String input = LineInputView.deleteLine();
-        return LineRepository.lines().stream().filter(line -> line.getName().equals(input)).findAny()
-            .orElseThrow(() -> new IllegalArgumentException("[ERROR] 제거하려는 호선이 존재하지 않습니다."));
+        return LineValidate.isDeletingInputLineExist(input);
     }
 }
