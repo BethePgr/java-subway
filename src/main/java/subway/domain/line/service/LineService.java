@@ -13,6 +13,13 @@ public class LineService {
         LineRepository.addLine(line);
     }
 
+    public static Line makeLine(String name, Station first, Station last){
+        Line line = new Line(name);
+        line.addStations(first);
+        line.addStations(last);
+        return line;
+    }
+
     public static void deleteLine(String name){
         LineRepository.deleteLineByName(name);
     }
