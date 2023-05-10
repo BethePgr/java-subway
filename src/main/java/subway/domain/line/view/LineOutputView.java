@@ -1,5 +1,9 @@
 package subway.domain.line.view;
 
+import subway.domain.line.Line;
+import subway.domain.line.LineRepository;
+import subway.domain.station.Station;
+
 public class LineOutputView {
 
     public static void mainLine(){
@@ -9,4 +13,13 @@ public class LineOutputView {
             + "3. 노선 조회\n"
             + "B. 돌아가기");
     }
+
+    public static void printLines(){
+        System.out.println("## 노선 목록");
+        for(Line line : LineRepository.lines()){
+            System.out.println("[INFO] " + line.getName());
+
+        }
+    }
+
 }
