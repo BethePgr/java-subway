@@ -30,17 +30,12 @@ public class LineInputController {
 
     public static Station addLineFirstStation() throws IllegalArgumentException{
         String input = LineInputView.startStationOfLine();
-        //LineValidate.validateStationOfLineIsExist(input);
-        return StationRepository.stations().stream().filter(station -> station.getName().equals(input)).findFirst()
-            .orElseThrow(() -> new IllegalArgumentException("[ERROR] 해당 역은 존재하지 않는 역입니다."));
+        return LineValidate.validateStationOfLineIsExist(input);
     }
 
     public static Station addLineLastStation(String start) throws IllegalArgumentException{
         String input = LineInputView.endStationOfLine();
-        //LineValidate.validateEndStationOfLineIsExistAndNotDuplicate(input,start);
-        return StationRepository.stations().stream().filter(station -> station.getName().equals(input)
-            && !input.equals(start)).findAny()
-            .orElseThrow(() -> new IllegalArgumentException("[ERROR] 해당 역은 존재하지 않는 역이거나 시작역과 달라야합니다."));
+        return LineValidate.validateEndStationOfLineIsExistAndNotDuplicate(input,start);
     }
 
     public static Line deleteLine() throws IllegalArgumentException{

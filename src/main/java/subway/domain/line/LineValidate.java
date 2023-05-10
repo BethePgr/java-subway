@@ -3,6 +3,7 @@ package subway.domain.line;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import subway.domain.station.Station;
 import subway.domain.station.StationRepository;
 
 public class LineValidate {
@@ -31,16 +32,15 @@ public class LineValidate {
         }
     }
 
-    public static void validateStationOfLineIsExist(String input){
-        if(StationRepository.stations().stream().noneMatch(station -> station.getName().equals(input))){
-            throw new IllegalArgumentException("[ERROR] 해당 역은 존재하지 않는 역입니다.");
-        }
+    public static Station validateStationOfLineIsExist(String input){
+        return StationRepository.stations().stream().filter(station -> station.getName().equals(input)).findFirst()
+            .orElseThrow(() -> new IllegalArgumentException("[ERROR] 해당 역은 존재하지 않는 역입니다."));
     }
 
-    public static void validateEndStationOfLineIsExistAndNotDuplicate(String input,String start){
+    public static Station validateEndStationOfLineIsExistAndNotDuplicate(String input,String start){
         validateStationOfLineIsExist(input);
-        if(input.equals(start)){
-            throw new IllegalArgumentException("[ERROR] 시작역과 종착역은 달라야합니다.");
-        }
+        return StationRepository.stations().stream().filter(station -> station.getName().equals(input)
+                && !input.equals(start)).findAny()
+            .orElseThrow(() -> new IllegalArgumentException("[ERROR] 해당 역은 존재하지 않는 역이거나 시작역과 달라야합니다."));
     }
 }
