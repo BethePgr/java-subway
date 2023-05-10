@@ -18,4 +18,21 @@ public class LineInputController {
         }
     }
 
+    public static String addLineName() throws IllegalArgumentException{
+        String input = LineInputView.addLine();
+        LineValidate.addLineValidate(input);
+        return input;
+    }
+
+    public static String addLineFirstStation() throws IllegalArgumentException{
+        String input = LineInputView.startStationOfLine();
+        LineValidate.validateStationOfLineIsExist(input);
+        return input;
+    }
+
+    public static String addLineLastStation(String start) throws IllegalArgumentException{
+        String input = LineInputView.endStationOfLine();
+        LineValidate.validateEndStationOfLineIsExistAndNotDuplicate(input,start);
+        return input;
+    }
 }
