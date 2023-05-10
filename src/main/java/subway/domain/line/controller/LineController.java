@@ -1,5 +1,6 @@
 package subway.domain.line.controller;
 
+import subway.domain.line.Line;
 import subway.domain.line.service.LineService;
 import subway.domain.line.view.LineOutputView;
 import subway.domain.station.Station;
@@ -18,7 +19,7 @@ public class LineController {
 
     public static void lineFunctions(String input){
         addLine(input);
-
+        deleteLine(input);
         printLines(input);
     }
 
@@ -30,6 +31,14 @@ public class LineController {
             LineService.addLine(LineService.makeLine(lineName,startStation,endStation));
         }
     }
+
+    public static void deleteLine(String input){
+        if(input.equals("2")){
+            Line line = LineInputController.deleteLine();
+            LineService.deleteLine(line.getName());
+        }
+    }
+
 
     public static void printLines(String input){
         if(input.equals("3")){

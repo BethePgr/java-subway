@@ -1,5 +1,7 @@
 package subway.domain.line.controller;
 
+import subway.domain.line.Line;
+import subway.domain.line.LineRepository;
 import subway.domain.line.LineValidate;
 import subway.domain.line.view.LineInputView;
 import subway.domain.line.view.LineOutputView;
@@ -37,7 +39,13 @@ public class LineInputController {
         String input = LineInputView.endStationOfLine();
         //LineValidate.validateEndStationOfLineIsExistAndNotDuplicate(input,start);
         return StationRepository.stations().stream().filter(station -> station.getName().equals(input)
-            && !input.equals(start)).findFirst()
+            && !input.equals(start)).findAny()
             .orElseThrow(() -> new IllegalArgumentException("[ERROR] 해당 역은 존재하지 않는 역이거나 시작역과 달라야합니다."));
+    }
+
+    public static Line deleteLine() throws IllegalArgumentException{
+        String input = LineInputView.deleteLine();
+        return LineRepository.lines().stream().filter(line -> line.getName().equals(input)).findAny()
+            .orElseThrow(() -> new IllegalArgumentException("[ERROR] 제거하려는 호선이 존재하지 않습니다."));
     }
 }
