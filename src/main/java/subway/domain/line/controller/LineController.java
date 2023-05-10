@@ -25,17 +25,27 @@ public class LineController {
 
     public static void addLine(String input){
         if(input.equals("1")){
-            String lineName = LineInputController.addLineName();
-            Station startStation = LineInputController.addLineFirstStation();
-            Station endStation = LineInputController.addLineLastStation(startStation.getName());
-            LineService.addLine(LineService.makeLine(lineName,startStation,endStation));
+            try {
+                String lineName = LineInputController.addLineName();
+                Station startStation = LineInputController.addLineFirstStation();
+                Station endStation = LineInputController.addLineLastStation(startStation.getName());
+                LineService.addLine(LineService.makeLine(lineName, startStation, endStation));
+                LineOutputView.addedLine();
+            }catch (IllegalArgumentException e){
+                System.out.println(e.getMessage());
+            }
         }
     }
 
     public static void deleteLine(String input){
         if(input.equals("2")){
-            Line line = LineInputController.deleteLine();
-            LineService.deleteLine(line.getName());
+            try {
+                Line line = LineInputController.deleteLine();
+                LineService.deleteLine(line.getName());
+                LineOutputView.deletedLine();
+            }catch (IllegalArgumentException e){
+                System.out.println(e.getMessage());
+            }
         }
     }
 

@@ -14,6 +14,14 @@ public class LineOutputView {
             + "B. 돌아가기");
     }
 
+    public static void addedLine(){
+        System.out.println("[INFO] 지하철 노선이 등록되었습니다.");
+    }
+
+    public static void deletedLine(){
+        System.out.println("[INFO] 지하철 노선이 삭제되었습니다.");
+    }
+
     public static void printLines(){
         System.out.println("## 노선 목록");
         for(Line line : LineRepository.lines()){
