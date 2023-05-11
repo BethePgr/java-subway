@@ -3,16 +3,14 @@ package subway.domain.line.controller;
 import subway.domain.line.Line;
 import subway.domain.line.service.LineService;
 import subway.domain.line.view.LineOutputView;
+import subway.domain.section.controller.SectionInputController;
 import subway.domain.station.Station;
 
 public class LineController {
 
-    public static void startLine(){
-        while(true){
-            String input = LineInputController.startLineInput();
-            if(input.equals("B")){
-                break;
-            }
+    public static void run() {
+        String input = LineInputController.startLineInput();
+        if (!input.equals("B")) {
             lineFunctions(input);
         }
     }

@@ -28,12 +28,12 @@ public class SubwayController {
 
     public static void stationCon(String input){
         if(input.equals("1")){
-            StationController.startStation();
+            StationController.run();
         }
     }
     public static void LineCon(String input){
         if(input.equals("2")){
-            LineController.startLine();
+            LineController.run();
         }
     }
     public static void SectionCon(String input){

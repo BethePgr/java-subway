@@ -2,6 +2,7 @@ package subway.domain.station.controller;
 
 import subway.domain.line.Line;
 import subway.domain.line.LineRepository;
+import subway.domain.section.controller.SectionInputController;
 import subway.domain.station.Station;
 import subway.domain.station.StationRepository;
 import subway.domain.station.service.StationService;
@@ -9,12 +10,9 @@ import subway.domain.station.view.StationOutputView;
 
 public class StationController {
 
-    public static void startStation(){
-        while(true) {
-            String input = StationInputController.startStationInput();
-            if(input.equals("B")){
-                break;
-            }
+    public static void run() {
+        String input = StationInputController.startStationInput();
+        if (!input.equals("B")) {
             stationFunctions(input);
         }
     }
