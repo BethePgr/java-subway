@@ -8,4 +8,12 @@ public class SectionOutputView {
             + "2. 구간 삭제\n"
             + "B. 돌아가기");
     }
+
+    public static void sectionAdded(){
+        System.out.println("[INFO] 구간이 등록되었습니다.");
+    }
+
+    public static void sectionDeleted(){
+        System.out.println("[INFO] 구간이 삭제되었습니다.");
+    }
 }
