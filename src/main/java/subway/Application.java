@@ -12,9 +12,6 @@ public class Application {
 
         final Scanner scanner = new Scanner(System.in);
 
-        StationInitialization.setInitialStations();
-        LineInitialization.setInitialLines();
-
         SubwayController.run();
     }
 }
