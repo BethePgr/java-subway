@@ -40,7 +40,6 @@ public class StationController {
         if(input.equals("2")){
             try {
                 String deleteStation = StationInputController.deleteStation();
-                System.out.println("zz");
                 StationService.deleteStation(deleteStation);
                 StationOutputView.deletedStation();
             }catch (IllegalArgumentException e){
