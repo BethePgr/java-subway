@@ -18,8 +18,26 @@ public class SectionValidate {
         }
     }
 
-    public static Station validateStationExist(String input){
+    public static Station validateStationExist(Line line,String input){
+        validateStationIsExistThrowError(line,input);
         return LineValidate.validateStationOfLineIsExist(input);
+    }
+
+    public static Station validateStationNotExist(Line line,String input){
+        validateStationIsNotExistThrowError(line,input);
+        return LineValidate.validateStationOfLineIsExist(input);
+    }
+
+    public static void validateStationIsExistThrowError(Line line,String input){
+        if(line.getStationList().stream().anyMatch(station -> station.getName().equals(input))){
+            throw new IllegalArgumentException("[ERROR] 해당 역은 이미 노선에 존재합니다.");
+        }
+    }
+
+    public static void validateStationIsNotExistThrowError(Line line,String input){
+        if(line.getStationList().stream().noneMatch(station -> station.getName().equals(input))){
+            throw new IllegalArgumentException("[ERROR] 해당 역은 노선에 존재하지 않습니다.");
+        }
     }
 
     public static Line validateLineExist(String input){
