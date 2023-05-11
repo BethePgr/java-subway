@@ -7,6 +7,7 @@ import subway.domain.section.controller.SectionController;
 import subway.domain.station.Station;
 import subway.domain.station.StationRepository;
 import subway.domain.station.controller.StationController;
+import subway.view.OutputView;
 
 public class SubwayController {
 
@@ -22,8 +23,9 @@ public class SubwayController {
 
     public static void subwayFunction(String input){
         stationCon(input);
-        LineCon(input);
-        SectionCon(input);
+        lineCon(input);
+        sectionCon(input);
+        printAll(input);
     }
 
     public static void stationCon(String input){
@@ -31,14 +33,19 @@ public class SubwayController {
             StationController.run();
         }
     }
-    public static void LineCon(String input){
+    public static void lineCon(String input){
         if(input.equals("2")){
             LineController.run();
         }
     }
-    public static void SectionCon(String input){
+    public static void sectionCon(String input){
         if(input.equals("3")){
             SectionController.run();
+        }
+    }
+    public static void printAll(String input){
+        if(input.equals("4")){
+            OutputView.printAllLinesAndStations();
         }
     }
 }

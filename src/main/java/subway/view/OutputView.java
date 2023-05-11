@@ -1,5 +1,9 @@
 package subway.view;
 
+import subway.domain.line.Line;
+import subway.domain.line.LineRepository;
+import subway.domain.station.Station;
+
 public class OutputView {
 
     public static void printMain(){
@@ -11,4 +15,18 @@ public class OutputView {
             + "Q. 종료");
     }
 
+    public static void printAllLinesAndStations(){
+        for(Line line : LineRepository.lines()){
+            System.out.println("[INFO] " + line.getName());
+            System.out.println("[INFO] ---");
+            printAllStationsOfOneLine(line);
+        }
+    }
+
+    public static void printAllStationsOfOneLine(Line line){
+        for(Station station : line.getStationList()){
+            System.out.println("[INFO] " + station.getName());
+        }
+        System.out.println();
+    }
 }
