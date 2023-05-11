@@ -44,7 +44,7 @@ public class SectionValidate {
     private static void notOverLineStationCounts(Line line,String input){
         int size = line.getStationList().size();
         if(Integer.parseInt(input) > size + 1){
-            throw new IllegalArgumentException("[ERROR] 순서는 호선의 역의 개수+1 보다 작아야합니다.");
+            throw new IllegalArgumentException("[ERROR] 순서는 호선의 역의 개수+1 보다 작거나 같아야 합니다.");
         }
     }
 
