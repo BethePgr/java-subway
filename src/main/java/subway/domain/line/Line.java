@@ -5,6 +5,7 @@ import java.util.List;
 import subway.domain.station.Station;
 
 public class Line {
+
     private String name;
     private List<Station> stationList = new ArrayList<>();
 
@@ -12,7 +13,7 @@ public class Line {
         this.name = name;
     }
 
-    public void addStations(Station station){
+    public void addStations(Station station) {
         stationList.add(station);
     }
 
@@ -20,7 +21,7 @@ public class Line {
         return name;
     }
 
-    public List<Station> getStationList(){
+    public List<Station> getStationList() {
         return stationList;
     }
 }

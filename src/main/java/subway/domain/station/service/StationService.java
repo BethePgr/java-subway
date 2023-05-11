@@ -9,15 +9,15 @@ import subway.domain.station.StationRepository;
 
 public class StationService {
 
-    public static void addStation(Station station){
+    public static void addStation(Station station) {
         StationRepository.addStation(station);
     }
 
-    public static void deleteStation(String name){
+    public static void deleteStation(String name) {
         StationRepository.deleteStation(name);
     }
 
-    public static List<Station> getStations(){
+    public static List<Station> getStations() {
         return StationRepository.stations();
     }
 }

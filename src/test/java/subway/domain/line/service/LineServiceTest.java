@@ -13,7 +13,7 @@ import subway.domain.station.StationInitialization;
 class LineServiceTest {
 
     @BeforeEach
-    void setUp(){
+    void setUp() {
         StationInitialization.setInitialStations();
         LineInitialization.setInitialLines();
     }
@@ -21,7 +21,7 @@ class LineServiceTest {
     @Test
     @DisplayName("이미 존재하는 호선을 추가하려고하면 에러가 뜬다.")
     void test1() throws Exception {
-        assertThrows(IllegalArgumentException.class,() -> LineValidate.addLineValidate("2호선"));
+        assertThrows(IllegalArgumentException.class, () -> LineValidate.addLineValidate("2호선"));
     }
 
     @Test
@@ -33,6 +33,7 @@ class LineServiceTest {
     @Test
     @DisplayName("존재하지 않는 이름의 호선을 제거하려고 하면 에러가 뜬다.")
     void test3() throws Exception {
-        assertThrows(IllegalArgumentException.class, () -> LineValidate.isDeletingInputLineExist("9호선"));
+        assertThrows(IllegalArgumentException.class,
+            () -> LineValidate.isDeletingInputLineExist("9호선"));
     }
 }

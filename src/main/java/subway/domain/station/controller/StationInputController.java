@@ -18,13 +18,13 @@ public class StationInputController {
         }
     }
 
-    public static String addStation() throws IllegalArgumentException{
+    public static String addStation() throws IllegalArgumentException {
         String input = StationInputView.addStation();
         StationValidate.addStationValidate(input);
         return input;
     }
 
-    public static String deleteStation() throws IllegalArgumentException{
+    public static String deleteStation() throws IllegalArgumentException {
         String input = StationInputView.deleteStation();
         StationValidate.deleteStationValidate(input);
         return input;

@@ -19,7 +19,7 @@ import subway.domain.station.StationRepository;
 class SectionServiceTest {
 
     @BeforeEach
-    void setUp(){
+    void setUp() {
         StationInitialization.setInitialStations();
         LineInitialization.setInitialLines();
     }
@@ -29,11 +29,11 @@ class SectionServiceTest {
     void test1() throws Exception {
 
         Line lineTwo = SectionValidate.validateLineExist("2호선");
-        Station station = SectionValidate.validateStationExist(lineTwo,"매봉역");
+        Station station = SectionValidate.validateStationExist(lineTwo, "매봉역");
         int num = 3;
-        SectionService.addSection(lineTwo,station,num);
+        SectionService.addSection(lineTwo, station, num);
 
-        assertEquals(4,lineTwo.getStationList().size());
+        assertEquals(4, lineTwo.getStationList().size());
     }
 
     @Test
@@ -42,8 +42,8 @@ class SectionServiceTest {
 
         Line lineTwo = SectionValidate.validateLineExist("2호선");
         Station station = SectionValidate.validateStationNotExist(lineTwo, "교대역");
-        SectionService.deleteSection(lineTwo,station);
-        assertEquals(2,lineTwo.getStationList().size());
+        SectionService.deleteSection(lineTwo, station);
+        assertEquals(2, lineTwo.getStationList().size());
 
     }
 }

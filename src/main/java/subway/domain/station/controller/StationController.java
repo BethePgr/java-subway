@@ -17,39 +17,39 @@ public class StationController {
         }
     }
 
-    private static void stationFunctions(String input){
+    private static void stationFunctions(String input) {
         addStation(input);
         deleteStation(input);
         printAllStations(input);
     }
 
-    private static void addStation(String input){
-        if(input.equals("1")){
+    private static void addStation(String input) {
+        if (input.equals("1")) {
             try {
                 String newStation = StationInputController.addStation();
                 StationService.addStation(new Station(newStation));
                 StationOutputView.addedStation();
-            }catch (IllegalArgumentException e){
+            } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
 
             }
         }
     }
 
-    private static void deleteStation(String input){
-        if(input.equals("2")){
+    private static void deleteStation(String input) {
+        if (input.equals("2")) {
             try {
                 String deleteStation = StationInputController.deleteStation();
                 StationService.deleteStation(deleteStation);
                 StationOutputView.deletedStation();
-            }catch (IllegalArgumentException e){
+            } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
         }
     }
 
-    private static void printAllStations(String input){
-        if(input.equals("3")){
+    private static void printAllStations(String input) {
+        if (input.equals("3")) {
             StationOutputView.printAllStations(StationService.getStations());
         }
     }
