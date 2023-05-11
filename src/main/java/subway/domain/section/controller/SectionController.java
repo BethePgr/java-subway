@@ -30,9 +30,6 @@ public class SectionController {
                 int num = SectionInputController.sectionInputOrder(line);
                 SectionService.addSection(line,station,num);
                 SectionOutputView.sectionAdded();
-                for(Station stations : line.getStationList()){
-                    System.out.println(stations.getName());
-                }
             }catch (IllegalArgumentException e){
                 System.out.println(e.getMessage());
             }
@@ -46,9 +43,6 @@ public class SectionController {
                 Station station = SectionInputController.sectionInputDeleteStation(line);
                 SectionService.deleteSection(line,station);
                 SectionOutputView.sectionDeleted();
-                for(Station stations : line.getStationList()){
-                    System.out.println(stations.getName());
-                }
             }catch (IllegalArgumentException e){
                 System.out.println(e.getMessage());
             }
