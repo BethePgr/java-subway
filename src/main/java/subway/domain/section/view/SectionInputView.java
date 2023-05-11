@@ -25,4 +25,14 @@ public class SectionInputView {
         System.out.println("## 순서를 입력하세요.");
         return scanner.next();
     }
+
+    public static String deleteSectionLineName(){
+        System.out.println("## 삭제할 구간의 노선을 입력하세요.");
+        return scanner.next();
+    }
+
+    public static String deleteSectionStationName(){
+        System.out.println("## 삭제할 구간의 역을 입력하세요.");
+        return scanner.next();
+    }
 }

@@ -25,13 +25,23 @@ public class SectionInputController {
         return SectionValidate.validateLineExist(lineName);
     }
 
-    public static Station sectionInputStation() throws IllegalArgumentException{
+    public static Station sectionInputStation(Line line) throws IllegalArgumentException{
         String stationName = SectionInputView.addSectionStationName();
-        return SectionValidate.validateStationExist(stationName);
+        return SectionValidate.validateStationExist(line,stationName);
     }
 
     public static int sectionInputOrder(Line line) throws IllegalArgumentException{
         String order = SectionInputView.addSectionStationNameOrder();
         return SectionValidate.validateSectionOrder(line,order);
+    }
+
+    public static Line sectionInputDeleteLine() throws IllegalArgumentException{
+        String lineName = SectionInputView.deleteSectionLineName();
+        return SectionValidate.validateLineExist(lineName);
+    }
+
+    public static Station sectionInputDeleteStation(Line line) throws IllegalArgumentException{
+        String input = SectionInputView.deleteSectionStationName();
+        return SectionValidate.validateStationNotExist(line,input);
     }
 }
