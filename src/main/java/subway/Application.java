@@ -4,6 +4,7 @@ import java.util.Scanner;
 import subway.controller.SubwayController;
 import subway.domain.line.LineInitialization;
 import subway.domain.station.StationInitialization;
+import subway.domain.station.controller.StationController;
 
 public class Application {
 
@@ -14,7 +15,6 @@ public class Application {
         StationInitialization.setInitialStations();
         LineInitialization.setInitialLines();
 
-        SubwayController subwayController = new SubwayController();
-        subwayController.run();
+        SubwayController.run();
     }
 }
