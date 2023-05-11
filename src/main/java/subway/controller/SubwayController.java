@@ -2,24 +2,43 @@ package subway.controller;
 
 import subway.domain.line.Line;
 import subway.domain.line.LineRepository;
+import subway.domain.line.controller.LineController;
+import subway.domain.section.controller.SectionController;
 import subway.domain.station.Station;
 import subway.domain.station.StationRepository;
+import subway.domain.station.controller.StationController;
 
 public class SubwayController {
 
-    public void run(){
-        InputController.inputStartCon();
-
-        for(Line line : LineRepository.lines()){
-            System.out.println("LineRepository.lines = " + line.getName());
-            for(Station station : line.getStationList()){
-                System.out.println(station.getName());
+    public static void run(){
+        while(true){
+            String input = InputController.inputStartCon();
+            if(input.equals("Q")){
+                break;
             }
-        }
-
-        for(Station station : StationRepository.stations()){
-            System.out.println("StationRepository.stations = " + station.getName());
+            subwayFunction(input);
         }
     }
 
+    public static void subwayFunction(String input){
+        stationCon(input);
+        LineCon(input);
+        SectionCon(input);
+    }
+
+    public static void stationCon(String input){
+        if(input.equals("1")){
+            StationController.startStation();
+        }
+    }
+    public static void LineCon(String input){
+        if(input.equals("2")){
+            LineController.startLine();
+        }
+    }
+    public static void SectionCon(String input){
+        if(input.equals("3")){
+            SectionController.run();
+        }
+    }
 }
