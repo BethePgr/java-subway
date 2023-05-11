@@ -41,10 +41,22 @@ public class SectionValidate {
     }
 
     public static Line validateLineExist(String input){
-        return LineRepository.lines().stream().filter(line -> line.getName().equals(input)).findAny()
+        Line oneLine =  LineRepository.lines().stream().filter(line -> line.getName().equals(input)).findAny()
             .orElseThrow(() -> new IllegalArgumentException("[ERROR] 해당 노선은 존재하지 않습니다."));
+        return oneLine;
     }
 
+    public static Line validateLineExistAndMoreThan2Stations(String input){
+        Line oneLine =  LineRepository.lines().stream().filter(line -> line.getName().equals(input)).findAny()
+            .orElseThrow(() -> new IllegalArgumentException("[ERROR] 해당 노선은 존재하지 않습니다."));
+        validateLineIsMoreThan2Stations(oneLine);
+        return oneLine;
+    }
+    public static void validateLineIsMoreThan2Stations(Line line){
+        if(line.getStationList().size() <=2){
+            throw new IllegalArgumentException("[ERROR] 해당 호선의 역은 두 개이므로 더 이상 삭제할 수 없습니다.");
+        }
+    }
     public static int validateSectionOrder(Line line, String input){
         onlyNumber(input);
         notOverLineStationCounts(line, input);

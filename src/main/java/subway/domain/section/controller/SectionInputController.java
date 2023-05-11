@@ -37,7 +37,7 @@ public class SectionInputController {
 
     public static Line sectionInputDeleteLine() throws IllegalArgumentException{
         String lineName = SectionInputView.deleteSectionLineName();
-        return SectionValidate.validateLineExist(lineName);
+        return SectionValidate.validateLineExistAndMoreThan2Stations(lineName);
     }
 
     public static Station sectionInputDeleteStation(Line line) throws IllegalArgumentException{
