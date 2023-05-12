@@ -1,8 +1,8 @@
-package subway.domain.line;
+package subway.domain.line.domain;
 
 import java.util.ArrayList;
 import java.util.List;
-import subway.domain.station.Station;
+import subway.domain.station.domain.Station;
 
 public class Line {
 

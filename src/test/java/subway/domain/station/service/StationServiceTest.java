@@ -6,11 +6,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import subway.domain.line.LineInitialization;
-import subway.domain.station.Station;
+import subway.domain.station.domain.Station;
 import subway.domain.station.StationInitialization;
-import subway.domain.station.StationRepository;
+import subway.domain.station.domain.StationRepository;
 import subway.domain.station.StationValidate;
-import subway.domain.station.controller.StationInputController;
 
 class StationServiceTest {
 

@@ -1,7 +1,7 @@
 package subway.domain.station.view;
 
 import java.util.List;
-import subway.domain.station.Station;
+import subway.domain.station.domain.Station;
 
 public class StationOutputView {
 

@@ -1,4 +1,4 @@
-package subway.domain.station;
+package subway.domain.station.domain;
 
 public class Station {
 

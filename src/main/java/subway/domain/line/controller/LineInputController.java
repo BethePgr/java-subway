@@ -1,12 +1,10 @@
 package subway.domain.line.controller;
 
-import subway.domain.line.Line;
-import subway.domain.line.LineRepository;
+import subway.domain.line.domain.Line;
 import subway.domain.line.LineValidate;
 import subway.domain.line.view.LineInputView;
 import subway.domain.line.view.LineOutputView;
-import subway.domain.station.Station;
-import subway.domain.station.StationRepository;
+import subway.domain.station.domain.Station;
 
 public class LineInputController {
 

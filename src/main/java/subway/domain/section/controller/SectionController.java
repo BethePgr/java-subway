@@ -1,9 +1,9 @@
 package subway.domain.section.controller;
 
-import subway.domain.line.Line;
+import subway.domain.line.domain.Line;
 import subway.domain.section.service.SectionService;
 import subway.domain.section.view.SectionOutputView;
-import subway.domain.station.Station;
+import subway.domain.station.domain.Station;
 
 public class SectionController {
 

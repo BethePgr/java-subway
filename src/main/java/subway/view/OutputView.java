@@ -1,8 +1,8 @@
 package subway.view;
 
-import subway.domain.line.Line;
-import subway.domain.line.LineRepository;
-import subway.domain.station.Station;
+import subway.domain.line.domain.Line;
+import subway.domain.line.domain.LineRepository;
+import subway.domain.station.domain.Station;
 
 public class OutputView {
 

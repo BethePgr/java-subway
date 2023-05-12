@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import subway.domain.line.Line;
 import subway.domain.line.LineInitialization;
 import subway.domain.line.LineValidate;
 import subway.domain.station.StationInitialization;

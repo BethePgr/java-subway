@@ -3,8 +3,9 @@ package subway.domain.station;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import subway.domain.line.Line;
-import subway.domain.line.LineRepository;
+import subway.domain.line.domain.Line;
+import subway.domain.line.domain.LineRepository;
+import subway.domain.station.domain.StationRepository;
 
 public class StationValidate {
 

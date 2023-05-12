@@ -1,11 +1,8 @@
 package subway.domain.station.service;
 
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
-import subway.domain.station.Station;
-import subway.domain.station.StationRepository;
+import subway.domain.station.domain.Station;
+import subway.domain.station.domain.StationRepository;
 
 public class StationService {
 
